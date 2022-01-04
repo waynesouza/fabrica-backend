@@ -6,7 +6,7 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: user
-      MYSQL_DATABASE: tarefa
+      MYSQL_DATABASE: projeto_tcc
       MYSQL_USER: user
       MYSQL_PASSWORD: user
     volumes:

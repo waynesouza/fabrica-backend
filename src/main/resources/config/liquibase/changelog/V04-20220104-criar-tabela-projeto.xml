@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="202201041503-1" author="Wayne">
+        <createTable tableName="TB_PROJETO" remarks="Tabela para armazenar os dados do projeto">
+            <column name="ID_PROJETO" type="BIGINT" remarks="Código identificador do projeto">
+                <constraints nullable="false"/>
+            </column>
+            <column name="NO_PROJETO" type="VARCHAR(50)" remarks="Nome do projeto">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DT_INICIAL" type="DATE" remarks="Data inicial do projeto">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DT_FINAL" type="DATE" remarks="Data final do projeto">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ID_EQUIPE" type="BIGINT" remarks="Código identificador da equipe">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ID_CLIENTE" type="BIGINT" remarks="Código identificador do cliente">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey tableName="TB_PROJETO" columnNames="ID_PROJETO" constraintName="PK_TB_PROJETO_ID_PROJETO"/>
+    </changeSet>
+
+    <changeSet id="202201041503-2" author="Wayne">
+        <createSequence sequenceName="SQ_PROJETO_ID_PROJETO" incrementBy="1" startValue="1"/>
+    </changeSet>
+
+    <changeSet id="202201041503-3" author="Wayne">
+        <addForeignKeyConstraint baseTableName="TB_PROJETO" baseColumnNames="ID_EQUIPE" constraintName="FKTB_EQUIPE_TB_PROJETO" referencedTableName="TB_EQUIPE" referencedColumnNames="ID_EQUIPE"/>
+    </changeSet>
+
+    <changeSet id="202201041503-4" author="Wayne">
+        <addForeignKeyConstraint baseTableName="TB_PROJETO" baseColumnNames="ID_CLIENTE" constraintName="FKTB_CLIENTE_TB_PROJETO" referencedTableName="TB_CLIENTE" referencedColumnNames="ID_CLIENTE"/>
+    </changeSet>
+</databaseChangeLog>

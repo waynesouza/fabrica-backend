@@ -16,6 +16,9 @@
             <column name="TP_CARGO" type="VARCHAR(50)" remarks="Cargo do funcionário">
                 <constraints nullable="false"/>
             </column>
+            <column name="ID_EQUIPE" type="BIGINT" remarks="Código identificador da equipe">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
         <addPrimaryKey tableName="TB_FUNCIONARIO" columnNames="ID_FUNCIONARIO" constraintName="PK_TB_FUNCIONARIO_ID_FUNCIONARIO"/>
     </changeSet>
@@ -30,4 +33,7 @@
         </sql>
     </changeSet>
 
+    <changeSet id="202201041444-4" author="Wayne">
+        <addForeignKeyConstraint baseTableName="TB_FUNCIONARIO" baseColumnNames="ID_EQUIPE" constraintName="FKTB_EQUIPE_TB_FUNCIONARIO" referencedTableName="TB_EQUIPE" referencedColumnNames="ID_EQUIPE"/>
+    </changeSet>
 </databaseChangeLog>

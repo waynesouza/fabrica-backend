@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="202201041456-1" author="Wayne">
+        <createTable tableName="TB_EQUIPE" remarks="Tabela para armazenar os dados da equipe">
+            <column name="ID_EQUIPE" type="BIGINT" remarks="Código identificador da equipe">
+                <constraints nullable="false"/>
+            </column>
+            <column name="NO_EQUIPE" type="VARCHAR(50)" remarks="Nome da equipe">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DT_CRIACAO" type="DATE" remarks="Nome do cliente">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey tableName="TB_EQUIPE" columnNames="ID_EQUIPE" constraintName="PK_TB_EQUIPE_ID_EQUIPE"/>
+    </changeSet>
+
+    <changeSet id="202201041456-2" author="Wayne">
+        <createSequence sequenceName="SQ_EQUIPE_ID_EQUIPE" incrementBy="1" startValue="1"/>
+    </changeSet>
+</databaseChangeLog>
