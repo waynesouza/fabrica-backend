@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="202201041444-1" author="Wayne">
+        <createTable tableName="TB_FUNCIONARIO" remarks="Tabela para armazenar os dados do funcionário">
+            <column name="ID_FUNCIONARIO" type="BIGINT" remarks="Código identificador do funcionário">
+                <constraints nullable="false"/>
+            </column>
+            <column name="NO_FUNCIONARIO" type="VARCHAR(50)" remarks="Nome do funcionário">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TP_CARGO" type="VARCHAR(50)" remarks="Cargo do funcionário">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey tableName="TB_FUNCIONARIO" columnNames="ID_FUNCIONARIO" constraintName="PK_TB_FUNCIONARIO_ID_FUNCIONARIO"/>
+    </changeSet>
+
+    <changeSet id="202201041444-2" author="Wayne">
+        <createSequence sequenceName="SQ_FUNCIONARIO_ID_FUNCIONARIO" incrementBy="1" startValue="1"/>
+    </changeSet>
+
+    <changeSet id="202201041444-3" author="Wayne">
+        <sql>
+            ALTER TABLE TB_FUNCIONARIO ADD CONSTRAINT CK_TP_CARGO CHECK ( TP_CARGO IN ('FRONT', 'BACK', 'FULLSTACK') );
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

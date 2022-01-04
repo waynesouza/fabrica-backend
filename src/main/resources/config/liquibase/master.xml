@@ -6,4 +6,5 @@
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 
     <include file="config/liquibase/changelog/V01-20220103-criar-tabela-cliente.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/V02-20220104-criar-tabela-funcionario.xml" relativeToChangelogFile="false"/>
 </databaseChangeLog>
