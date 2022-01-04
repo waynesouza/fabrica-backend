@@ -13,7 +13,7 @@
             <column name="NO_EQUIPE" type="VARCHAR(50)" remarks="Nome da equipe">
                 <constraints nullable="false"/>
             </column>
-            <column name="DT_CRIACAO" type="DATE" remarks="Nome do cliente">
+            <column name="DT_CRIACAO" type="DATE" remarks="Data de criação da equipe">
                 <constraints nullable="false"/>
             </column>
         </createTable>
