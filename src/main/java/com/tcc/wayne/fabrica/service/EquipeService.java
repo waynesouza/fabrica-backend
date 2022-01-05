@@ -14,6 +14,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -29,6 +30,10 @@ public class EquipeService {
 
     public List<EquipeDTO> listarTodosJPQL() {
         return equipeMapper.toDto(equipeRepository.findAll());
+    }
+
+    public List<EquipeDTO> listarPorDataCriacaoJPQL(LocalDate dataCriacao) {
+        return equipeMapper.toDto(equipeRepository.listarPorDataCriacaoJPQL(dataCriacao));
     }
 
     public List<EquipeDTO> listarTodosCriteria() {
