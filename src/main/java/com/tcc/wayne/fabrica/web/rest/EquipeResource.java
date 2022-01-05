@@ -26,4 +26,10 @@ public class EquipeResource {
         return new ResponseEntity<>(equipeService.listarTodosJPQL(), HttpStatus.OK);
     }
 
+    @GetMapping("/criteria")
+    public ResponseEntity<List<EquipeDTO>> listarTodosCriteria() {
+        log.debug("Requisição para buscar as equipes");
+        return new ResponseEntity<>(equipeService.listarTodosCriteria(), HttpStatus.OK);
+    }
+
 }
